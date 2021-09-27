@@ -26,8 +26,8 @@ public class Main {
 
         
         try { 
-            //Configuració del Text to Speech.
-            Reproductor textToSpeech = new Reproductor(
+            //Configuració del reproductor.
+            Reproductor reproductor = new Reproductor(
                     reproductorKey, 
                     ubicacio, 
                     idiomaFinal,
@@ -48,7 +48,7 @@ public class Main {
             System.out.println("String traduit: "+ traduit);
             
             //Reproductor de l' String traduit.
-            textToSpeech.reproduir(traduit);
+            reproductor.reproduir(traduit);
             
         } catch (Exception e) {
             System.out.println(e);
