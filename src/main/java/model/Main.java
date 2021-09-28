@@ -35,7 +35,7 @@ public class Main {
             );
             
             //Configuració del traductor.
-            Traductor translateRequest = new Traductor(
+            Traductor traductor = new Traductor(
                     traductorKey,
                     ubicacio,
                     idiomaOrigen,
@@ -43,11 +43,11 @@ public class Main {
             );
             
             //Traducció de l' String passat per paràmetre.
-            String traduit = translateRequest.Traduir(aTraduir);
+            String traduit = traductor.Traduir(aTraduir);
             System.out.println("String a traduir: "+ aTraduir);
             System.out.println("String traduit: "+ traduit);
             
-            //Reproductor de l' String traduit.
+            //Reproductor de l' String traduït.
             reproductor.reproduir(traduit);
             
         } catch (Exception e) {

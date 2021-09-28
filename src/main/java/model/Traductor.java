@@ -23,22 +23,37 @@ public class Traductor {
     public HttpUrl getUrl() {
         return url;
     }
-
+    
+    /**
+     * Mètode SET de la URL. 
+     * Aquest crea la URL que s'utilitzarà en el POST per a connectar-se amb el
+     * servei traductor d'Azure Microsoft Cognitive Services.
+     * @param from, idioma del text a traduir.
+     * @param to, idioma al qual volem traduir.
+     * @throws GestorException 
+     */
     private void setUrl(String from, String to) throws GestorException {
         
         try{
             
-            this.url = new HttpUrl.Builder()
-                .scheme("https")
-                .host("api.cognitive.microsofttranslator.com")
-                .addPathSegment("/translate")
-                .addQueryParameter("api-version", "3.0")
-                .addQueryParameter("from", from)
-                .addQueryParameter("to", to)
-                .build();
-        
+            if(from.equalsIgnoreCase("es") || from.equalsIgnoreCase("ca") || 
+                    from.equalsIgnoreCase("en")){
+                
+                this.url = new HttpUrl.Builder()
+                    .scheme("https")
+                    .host("api.cognitive.microsofttranslator.com")
+                    .addPathSegment("/translate")
+                    .addQueryParameter("api-version", "3.0")
+                    .addQueryParameter("from", from)
+                    .addQueryParameter("to", to)
+                    .build();
+            }else{
+                throw new GestorException("L'Idioma de la frase a traduir no està disponible. "
+                        + "Idiomes disponibles: català (ca), castellà (es), anglès (en).");
+            }  
+            
         }catch(Exception e){
-            throw new GestorException("Error en la construccio de la url "
+            throw new GestorException("Error en la construcció de la url "
                     + "per a efectuar la comunicació amb el servei traductor. "
                     + e);
         }
@@ -57,11 +72,33 @@ public class Traductor {
         this.location = location;
     }
 
-    // This function performs a POST request.
-    public String Traduir(String text) throws IOException, GestorException {
+    /**
+     * Mètode públic que realitza la connexió amb el servei traductor, i n'obté
+     * el text traduït de la resposta.
+     * @param text, text a traduir.
+     * @return text traduït.
+     * @throws IOException
+     * @throws GestorException 
+     */
+    public String Traduir(String text) throws IOException, GestorException{
+        String resposta = Post(text);
+        String textTraduit = ObtenirParaulaTraduida(resposta);
+        return textTraduit;
+    }
+    
+    /**
+     * Mètode que realitza la sol·licitud Post al servei Traductor 
+     * d'Azure Microsoft Cognitive Services.
+     * @param text, text a traduir
+     * @return La resposta del POST efectuat.
+     * @throws IOException
+     * @throws GestorException 
+     */
+    private String Post(String text) throws IOException, GestorException {
         
         try{
             
+            //Creem la sol·licitud.
             MediaType mediaType = MediaType.parse("application/json");
 
             RequestBody body = RequestBody.create(mediaType,
@@ -73,9 +110,10 @@ public class Traductor {
                     .addHeader("Content-type", "application/json")
                     .build();
             
+            //Enviem la sol·licitud i n'obtenim la resposta.
             Response response = CLIENT.newCall(request).execute();
 
-            return  ObtenirParaulaTraduida(response.body().string());
+            return  response.body().string();
         
         }catch(Exception e){
             throw new GestorException("Error a l'hora d'efectuar la connexió "
@@ -83,7 +121,14 @@ public class Traductor {
         }
     }
     
-    public String ObtenirParaulaTraduida(String json) throws GestorException{
+    /**
+     * Mètode que extreu el text traduït (que és la part que ens interessa) 
+     * de la resposta del POST.
+     * @param json String en format JSON que es rep del servei traductor, un cop efectuat el Post.
+     * @return text traduït.
+     * @throws GestorException 
+     */
+    private String ObtenirParaulaTraduida(String json) throws GestorException{
         
         try{
             
@@ -99,13 +144,4 @@ public class Traductor {
                     + "traduida de l'arxiu JSON rebut. " + e);
         }
     }
-    
-    /* This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    */
 }
