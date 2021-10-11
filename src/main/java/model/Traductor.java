@@ -25,14 +25,13 @@ public class Traductor {
     }
     
     /**
-     * Mètode SET de la URL. 
-     * Aquest crea la URL que s'utilitzarà en el POST per a connectar-se amb el
-     * servei traductor d'Azure Microsoft Cognitive Services.
+     * Mètode SET de la URL que crea la URL que s'utilitzarà en el POST per a 
+     * connectar-se amb el servei traductor d'Azure Microsoft Cognitive Services.
      * @param from, idioma del text a traduir.
      * @param to, idioma al qual volem traduir.
      * @throws GestorException 
      */
-    private void setUrl(String from, String to) throws GestorException {
+    public void setUrl(String from, String to) throws GestorException {
         
         try{
             
@@ -94,7 +93,7 @@ public class Traductor {
      * @throws IOException
      * @throws GestorException 
      */
-    private String Post(String text) throws IOException, GestorException {
+    public String Post(String text) throws IOException, GestorException {
         
         try{
             
@@ -128,7 +127,7 @@ public class Traductor {
      * @return text traduït.
      * @throws GestorException 
      */
-    private String ObtenirParaulaTraduida(String json) throws GestorException{
+    public String ObtenirParaulaTraduida(String json) throws GestorException{
         
         try{
             

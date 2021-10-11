@@ -1,3 +1,5 @@
-main\TextToSpeech.class
-main\Program.class
-main\Translate.class
+model\Main.class
+gestor\GestorException.class
+model\Traductor.class
+model\Usuari.class
+model\Reproductor.class

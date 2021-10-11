@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="4" failures="0" name="gestor.TestGestor" time="0.492" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="15.0.2+7-27"/>
+    <property name="sun.boot.library.path" value="E:\Program Files\Java\jdk-15.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\Users\Jordi\Documents\NetBeansProjects\Traductor"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="gestor.TestGestor"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\Users\Jordi\Documents\NetBeansProjects\Traductor"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="15.0.2+7-27"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="E:\Users\Jordi\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="E:\Program Files\Java\jdk-15.0.2\bin;E:\Windows\Sun\Java\bin;E:\Windows\system32;E:\Windows;E:\Python39\Scripts\;E:\Python39\;E:\apache-maven-3.8.1\bin;E:\Program Files\Java\jdk-15.0.2\bin;E:\Program Files\Common Files\Oracle\Java\javapath;E:\Windows\system32;E:\Windows;E:\Windows\System32\Wbem;E:\Windows\System32\WindowsPowerShell\v1.0\;E:\Windows\System32\OpenSSH\;E:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;E:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\Program Files\dotnet\;E:\Program Files\Microsoft SQL Server\130\Tools\Binn\;E:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;E:\Program Files\PuTTY\;E:\Program Files\PostgreSQL\13\bin;E:\Program Files (x86)\BaseX\bin;E:\ProgramData\chocolatey\bin;E:\Program Files (x86)\Inno Setup 6;E:\Program Files (x86)\WiX Toolset v3.11\bin;E:\Program Files\Git\bin;E:\Program Files\nodejs\;C:\Program Files\Calibre2\;E:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;E:\Program Files\Azure Data Studio\bin;E:\Users\Jordi\AppData\Local\Microsoft\WindowsApps;E:\Users\Jordi\AppData\Local\GitHubDesktop\bin;E:\Users\Jordi\AppData\Local\Programs\Microsoft VS Code\bin;E:\Users\Jordi\.dotnet\tools;E:\Users\Jordi\AppData\Local\Pandoc\;E:\Users\Jordi\AppData\Roaming\npm;E:\Program Files\Azure Data Studio\bin;."/>
+    <property name="maven.conf" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven\bin\../conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="59.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven\bin\..\lib\jansi-native"/>
+    <property name="user.home" value="E:\Users\Jordi"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="15"/>
+    <property name="user.name" value="Jordi"/>
+    <property name="java.class.path" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="15"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=gestor.TestGestor -Dmaven.ext.class.path=E:\Program Files\NetBeans-12.2\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.home" value="E:\Program Files\Java\jdk-15.0.2"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="15.0.2"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\Program Files\NetBeans-12.2\netbeans\java\maven\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-01-19"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="gestor.TestGestor" name="provaModificar" time="0.292"/>
+  <testcase classname="gestor.TestGestor" name="provaInserir" time="0.07"/>
+  <testcase classname="gestor.TestGestor" name="provaEliminar" time="0.065"/>
+  <testcase classname="gestor.TestGestor" name="provaObtenir" time="0.065"/>
+</testsuite>
