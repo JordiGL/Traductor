@@ -45,26 +45,26 @@ public class GestorUsuari {
             }else{
                                
                 //Obtenim els diferents arguments que afegirem a la base de dades
-                Date date = new Date();
-                Timestamp timestamp = new Timestamp(date.getTime());
-                String nom = usuari.getNom();
-                String genere = usuari.getGenere();
-                String telefon = usuari.getTelefon();
-                String email = usuari.getEmail();
-                String clau = usuari.getClau();
-                boolean esAdministrador = usuari.getAdministrador();
+//                Date date = new Date();
+//                Timestamp timestamp = new Timestamp(date.getTime());
+//                String nom = usuari.getNom();
+//                String genere = usuari.getGenere();
+//                String telefon = usuari.getTelefon();
+//                String email = usuari.getEmail();
+//                String clau = usuari.getClau();
+//                boolean esAdministrador = usuari.getAdministrador();
 
-                stm = connexio.prepareStatement(insert);
+//                stm = connexio.prepareStatement(insert);
                 //Afegim els arguments obtinguts a la sentència sql.
-                stm.setString(1, email);
-                stm.setString(2, nom);
-                stm.setString(3, genere);
-                stm.setString(4, telefon);   ;
-                stm.setString(5, clau);
-                stm.setBoolean(6, esAdministrador);
-                stm.setTimestamp(7, timestamp);
-                
-                stm.executeUpdate(); //Executem la sentencia.
+//                stm.setString(1, email);
+//                stm.setString(2, nom);
+//                stm.setString(3, genere);
+//                stm.setString(4, telefon);   ;
+//                stm.setString(5, clau);
+//                stm.setBoolean(6, esAdministrador);
+//                stm.setTimestamp(7, timestamp);
+//                
+//                stm.executeUpdate(); //Executem la sentencia.
             }
         
         } catch (SQLException | GestorException ex) {
@@ -97,18 +97,17 @@ public class GestorUsuari {
 
             if(rs.next()){           
                
-                //Com que l'usuari existeix a la base de dades, procedim a borrar-lo.          
-                stm = connexio.prepareStatement(update);
-
-                stm.setString(1, usuari.getEmail());
-                stm.setString(2, usuari.getNom());
-                stm.setString(3, usuari.getGenere());
-                stm.setString(4, usuari.getTelefon());
-                stm.setString(5, usuari.getClau());
-                stm.setBoolean(6, usuari.getAdministrador());
-                stm.setTimestamp(7, usuari.getUltimLogin());
-                stm.setString(8, email);
-                stm.executeUpdate();
+//                //Com que l'usuari existeix a la base de dades, procedim a borrar-lo.          
+//                stm = connexio.prepareStatement(update);
+//
+//                stm.setString(1, usuari.getEmail());
+//                stm.setString(2, usuari.getNom());
+//                stm.setString(3, usuari.getGender());
+//                stm.setInt(4, usuari.getPhone());
+//                stm.setString(5, usuari.getPassword());
+//                stm.setBoolean(6, usuari.getAdministrador());
+//                stm.setString(7, email);
+//                stm.executeUpdate();
         
             }else{
                  throw new GestorException("Aquest email no correspon a cap canal de la base de dades");
@@ -171,7 +170,7 @@ public class GestorUsuari {
     }
     
     public Usuari obtenirUsuari(String emailUsuari) throws GestorException{
-        String consulta = "SELECT email, nom, genere, telefon, password, es_administrador, ultim_login "
+        String consulta = "SELECT id, cognoms, email, enabled, gender, nom, password, phone, username "
                 + "FROM usuaris WHERE email LIKE ?";
         PreparedStatement stm = null;
         
@@ -183,15 +182,18 @@ public class GestorUsuari {
 
             while(rs.next()){
                 //Obtenim el usuari.
-                String email = rs.getString(1);
-                String nom = rs.getString(2);
-                String genere = rs.getString(3);
-                String telefon = rs.getString(4);
-                String clau = rs.getString(5);
-                boolean esAdministrador = rs.getBoolean(6);
-                Timestamp ultimLogin = rs.getTimestamp(7);
+                int id = rs.getInt(1);
+                String cognoms = rs.getString(2);
+                String email = rs.getString(3);
+                boolean enabled = rs.getBoolean(4);
+                String gender = rs.getString(5);
+                String nom = rs.getString(6);
+                String password = rs.getString(7);
+                int phone = rs.getInt(8);
+                String username = rs.getString(9);
+//                Timestamp ultimLogin = rs.getTimestamp(7);
 
-                Usuari usuari = new Usuari( email, nom, genere, telefon, clau, esAdministrador, ultimLogin);
+                Usuari usuari = new Usuari(id, cognoms, email, enabled, gender, nom, password, phone, username);
 
                 return usuari;            
             }

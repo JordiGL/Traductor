@@ -21,10 +21,10 @@ import java.sql.SQLException;
 public class Database {
 
     private final String HOST = "localhost";
-    private final String DB = "comunicador";
+    private final String DB = "db_escoltam";
     private final int PORT = 5432;
-    private final String USER = "ioc";
-    private final String PASS = "ioc";
+    private final String USER = "postgres";
+    private final String PASS = "pass";
     private String url = "jdbc:postgresql://%s:%d/%s";
     
     private Connection connexio;
@@ -60,13 +60,7 @@ public class Database {
     public void tancar() throws SQLException{
         connexio.close();
     }
-      
-//    public void tancarIObrir() throws SQLException {
-//        tancar();
-//        obrir();
-//
-//    }
-//
+    
     public void buidarTaula(String taulaABuidar) throws GestorException{
         
         try{
@@ -77,7 +71,13 @@ public class Database {
             throw new GestorException(ex.getMessage());     
         }
     }
-
+      
+//    public void tancarIObrir() throws SQLException {
+//        tancar();
+//        obrir();
+//
+//    }
+//
 //    public String insertUsuari(Usuari usuari) {
 //        String SQL = "INSERT INTO usuaris(nom, genere, telefon, email, password, administrador) "
 //                + "VALUES(?,?,?,?,?,?)";

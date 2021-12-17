@@ -16,92 +16,131 @@ public class Usuari {
     //private final String IDIOMA = "catala";
     //private String token;
     
+    private int id;
+    
+    private String cognoms;
+    
     private String nom;
+    
+    private String username;
 
-    private String telefon;
+    private int phone;
 
     private String email;
 
-    private String clau;
+    private String password;
 
-    private String genere;
+    private String gender;
     
-    private boolean administrador;
+    private boolean enabled;
     
-    private Timestamp ultimLogin;
+    //private Timestamp ultimLogin;
 
-    public Usuari(String email, String nom, String genere, String telefon, String clau){
-        this.nom = nom;
-        this.telefon= telefon;
+    public Usuari(int id, String cognoms, String email, String genere, String nom, String clau, int telefon, String sobrenom){
+        this.id = id;
+        this.cognoms = cognoms;        
         this.email = email;
-        this.clau = clau;
-        this.genere = genere;
-        this.administrador = false;
-        this.ultimLogin = null;
+        this.enabled = false;
+        this.gender = genere;
+        this.nom = nom;
+        this.password = clau;
+        this.phone= telefon;
+        this.username = sobrenom;
+        
+        
+       
+//        this.ultimLogin = null;
     }
     
-    public Usuari(String email, String nom, String genere, String telefon, String clau, boolean administrador, Timestamp ultimLogin){
-        this.nom = nom;
-        this.telefon= telefon;
+    public Usuari(int id, String cognoms, String email, boolean administrador, String genere, String nom, String clau, int telefon, String sobrenom){
+        this.id = id;
+        this.cognoms = cognoms;        
         this.email = email;
-        this.clau = clau;
-        this.genere = genere;
-        this.administrador = administrador;
-        this.ultimLogin = ultimLogin;
+        this.enabled = administrador;
+        this.gender = genere;
+        this.nom = nom;
+        this.password = clau;
+        this.phone= telefon;
+        this.username = sobrenom;
+//        this.ultimLogin = ultimLogin;
     }
     
     public String getNom() {
-        return this.nom;
+        return nom;
     }
 
-    public void setNom(String value) {
-        this.nom = value;
-    }
-    
-    public boolean getAdministrador() {
-        return this.administrador;
-    }
-
-    public void setAdministrador(boolean value) {
-        this.administrador = value;
-    }
-    public String getTelefon() {
-        return this.telefon;
-    }
-
-    public void setTelefon(String value) {
-        this.telefon = value;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
-    public void setEmail(String value) {
-        this.email = value;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getClau() {
-        return this.clau;
+    public int getId() {
+        return id;
     }
 
-    public void setClau(String value) {
-        this.clau = value;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getGenere() {
-        return this.genere;
+    public String getCognoms() {
+        return cognoms;
     }
 
-    public void setGenere(String value) {
-        this.genere = value;
+    public void setCognoms(String cognoms) {
+        this.cognoms = cognoms;
     }
 
-    public Timestamp getUltimLogin() {
-        return this.ultimLogin;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUltimLogin(Timestamp value) {
-        this.ultimLogin = value;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+//    public Timestamp getUltimLogin() {
+//        return this.ultimLogin;
+//    }
+//
+//    public void setUltimLogin(Timestamp value) {
+//        this.ultimLogin = value;
+//    }
 }
